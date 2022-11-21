@@ -1,0 +1,23 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.Departman
+@{
+    ViewBag.Title = "DepartmanGetir";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<br />
+<h2>Departman Güncelle</h2>
+<br />
+@using (Html.BeginForm("DepartmanGuncelle", "Departman", FormMethod.Post))
+{
+    <div class="group-form">
+
+        @Html.LabelFor(x =>x.Departman_Ad)
+        @Html.TextBoxFor(x => x.Departman_Ad, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.Departman_ID)
+
+    </div>
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}
+
+

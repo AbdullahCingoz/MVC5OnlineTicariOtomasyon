@@ -1,0 +1,31 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.Personel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+
+
+}
+
+<h2>Personel Ekle</h2>
+@using (Html.BeginForm("PersonelEkle", "Personel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form class="form-group" method="post">
+        @Html.LabelFor(x => x.Personel_Ad)
+        @Html.TextBoxFor(x => x.Personel_Ad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Personel_Soyad)
+        @Html.TextBoxFor(x => x.Personel_Soyad, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Personel_Gorsel)
+        @*@Html.TextBoxFor(x => x.Personel_Gorsel, new { @class = "form-control" })*@
+        <input type="file" name="Personel_Gorsel" />
+        <br />
+        @Html.LabelFor(x => x.Departman)
+        @Html.DropDownListFor(x => x.Departman_ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+        <br />
+        <button class="btn btn-info">Kaydet</button>
+    </form>
+}
+
+

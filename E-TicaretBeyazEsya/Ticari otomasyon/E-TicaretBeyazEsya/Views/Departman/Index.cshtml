@@ -1,0 +1,31 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Departman</h2>
+
+<table class="table table-bordered" style="margin-top:">
+    <tr>
+        <th>ID</th>
+        <th>Departman Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Departman_ID</td>
+            <td>@k.Departman_Ad</td>
+            <td><a href="@Url.Action("DepartmanSil","Departman",new {id=k.Departman_ID})" class="btn btn-danger">Sil</a></td>
+            <td><a href="@Url.Action("DepartmanGetir", "Departman", new {id=k.Departman_ID})" class="btn btn-success">Güncelle</a></td>
+            <td><a href="@Url.Action("DepartmanDetay", "Departman", new {id=k.Departman_ID})" class="btn btn-warning">Detaylar</a></td>
+        </tr>
+    }
+
+
+</table>
+<a href="@Url.Action("DepartmanEkle","Departman")" class="btn btn-info">Departman +</a>

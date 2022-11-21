@@ -1,0 +1,21 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.Kategori
+@{
+    ViewBag.Title = "KategoriEkle";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<script src="~/Scripts/jquery-3.6.0.js"></script>
+<br />
+<h2>Kategori Ekle</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.Kategori_Ad)
+    @Html.TextBoxFor(x => x.Kategori_Ad, new {@class="form-control"})
+    <br />
+    <button class="btn btn-info" id="Btn1">Kaydet</button>
+    <script>
+        $('#Btn1').click(function () {
+            alert("Kategori Başarılı Bir Şekilde Güncellendi")
+        });
+    </script>
+</form>

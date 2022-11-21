@@ -1,0 +1,35 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@model List<FaturaKalem>
+@{
+    ViewBag.Title = "FaturaDetay";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<br />
+<h2>Fatura Kalemleri</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Açıklama</th>
+        <th>Miktar</th>
+        <th>Birim Fiyat</th>
+        <th>Tutar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.FaturaKalem_ID</td>
+            <td>@x.FaturaKalem_Aciklama</td>
+            <td>@x.FaturaKalem_Miktar</td>
+            <td>@x.FaturaKalem_BirimFiyat</td>
+            <td>@x.FaturaKalem_Tutar</td>
+        </tr>
+    }
+
+</table>
+<a href="@Url.Action("YeniKalem","Fatura")" class="btn btn-info">Yeni Kalem +</a>
+

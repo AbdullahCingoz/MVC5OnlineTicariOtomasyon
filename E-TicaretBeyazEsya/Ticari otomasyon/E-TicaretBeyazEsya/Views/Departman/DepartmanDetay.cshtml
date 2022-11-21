@@ -1,0 +1,27 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@model List<Personel>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+<h2>Departman Detay</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Departman Adı: @ViewBag.d</li>
+</ol> 
+<table class="table table-hover">
+    <tr>
+        <th>Personel</th>
+        <th>Satışlar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+       <tr>
+        <td>@x.Personel_Ad @x.Personel_Soyad</td>
+        <td><a href="@Url.Action("DepartmanPersonelSatis", "Departman", new {id=x.Personel_ID})" class="btn btn-info">Satışlar</a></td>
+       </tr>
+    }
+   
+</table>
+

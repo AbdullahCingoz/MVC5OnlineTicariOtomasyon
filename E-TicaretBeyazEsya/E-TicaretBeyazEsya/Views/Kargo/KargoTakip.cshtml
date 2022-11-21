@@ -1,0 +1,24 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@model List<KargoTakip>
+@{
+    ViewBag.Title = "KargoTakip";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>KargoTakip</h2>
+<br />
+<table class="table table-stripped">
+    <tr>
+        <th>Açıklama</th>
+        <th>Tarih</th>
+       
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Aciklama</td>
+            <td>@x.TarihZaman</td>
+         
+        </tr>
+    }
+</table>

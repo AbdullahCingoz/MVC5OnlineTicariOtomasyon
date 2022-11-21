@@ -1,0 +1,27 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Siparislerim";
+    Layout = "~/Views/Shared/Cari_Layout.cshtml";
+}
+<br />
+<h2>Sipariş Geçmişi</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+
+
+    <tr>
+        <td>@x.Urun.Urun_Ad</td>
+        <td>@x.SatisHareket_Fiyat</td>
+        <td>@Convert.ToDateTime(x.SatisHareket_Tarih).ToString("dd/MM/yyyy")</td>
+    </tr>
+    }
+</table>
+

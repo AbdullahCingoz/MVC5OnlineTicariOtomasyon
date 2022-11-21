@@ -1,0 +1,36 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@model List<Cari>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+<h2>Cariler</h2>
+<br />
+<table class="table table-stripped">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var x in Model)
+     {
+      <tr>
+        <td>@x.Cari_ID</td>
+        <td>@x.Cari_Ad</td>
+        <td>@x.Cari_Soyad</td>
+        <td>@x.Cari_Sehir</td>
+        <td>@x.Cari_Mail</td>
+        <td><a href="@Url.Action("CariSil", "Cari", new {id=x.Cari_ID})" class="btn btn-danger">Sil</a></td>
+        <td><a href="@Url.Action("CariGetir", "Cari", new {id=x.Cari_ID})" class="btn btn-success">Güncelle</a></td>
+        <td><a href="@Url.Action("CariDetay", "Cari", new {id=x.Cari_ID})" class="btn btn-warning">Satış Geçmişi</a></td>
+      </tr>
+     }
+</table>
+<a href="@Url.Action("CariEkle","Cari")" class="btn btn-info">Cari +</a>
+

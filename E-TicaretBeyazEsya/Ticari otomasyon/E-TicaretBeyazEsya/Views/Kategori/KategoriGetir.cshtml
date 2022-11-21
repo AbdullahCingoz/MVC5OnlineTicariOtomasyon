@@ -1,0 +1,21 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.Kategori
+@{
+    ViewBag.Title = "KategoriGetir";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+<h2>Kategori Güncelle</h2>
+<br />
+@using(Html.BeginForm("KategoriGuncelle","Kategori",FormMethod.Post))
+            {
+                <div class="group-form">
+                    
+                    @Html.LabelFor(x=>x.Kategori_Ad)
+                    @Html.TextBoxFor(x=>x.Kategori_Ad,new{@class="form-control" })
+                    @Html.HiddenFor(x=>x.Kategori_ID)
+
+                </div>
+                <br />
+                <button class="btn btn-warning">Güncelle</button>
+            }
+

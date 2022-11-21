@@ -1,0 +1,33 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.Fatura
+@{
+    ViewBag.Title = "FaturaEkle";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+<h2>Yeni Fatura Girişi</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Fatura_SeriNo)
+    @Html.TextBoxFor(x => x.Fatura_SeriNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_SıraNo)
+    @Html.TextBoxFor(x => x.Fatura_SıraNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_Tarih)
+    @Html.TextBoxFor(x => x.Fatura_Tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_Saat)
+    @Html.TextBoxFor(x => x.Fatura_Saat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_VergiDairesi)
+    @Html.TextBoxFor(x => x.Fatura_VergiDairesi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_TeslimEden)
+    @Html.TextBoxFor(x => x.Fatura_TeslimEden, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_TeslimAlan)
+    @Html.TextBoxFor(x => x.Fatura_TeslimAlan, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

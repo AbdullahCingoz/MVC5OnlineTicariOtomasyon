@@ -1,0 +1,39 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h2>Personel</h2>
+<table class="table table-bordered" style="margin-top:">
+    <tr>
+        <th>ID</th>
+        <th>Personel Adı</th>
+        <th>Soyadı</th>
+        <th>Görsel</th>
+        <th>Departman</th>
+        <th>Güncelle</th>
+        <th>Satışlar</th>
+        <th>Sil</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+<tr>
+    <td>@k.Personel_ID</td>
+    <td>@k.Personel_Ad</td>
+    <td>@k.Personel_Soyad</td>
+    <td>
+        <img src="@k.Personel_Gorsel" style="width:100px; height:100px;" />
+    </td>
+    <td>@k.Departman.Departman_Ad</td>
+    <td><a href="@Url.Action("PersonelGetir", "Personel", new {id=k.Personel_ID})" class="btn btn-success">Güncelle</a></td>
+    <td><a href="@Url.Action("DepartmanPersonelSatis", "Departman", new {id=k.Personel_ID})" class="btn btn-warning">Detaylar</a></td>
+    <td><a href="@Url.Action("PersonelSil", "Personel", new {id=k.Personel_ID})" class="btn btn-danger">Sil</a></td>
+</tr>
+    }
+
+
+</table>
+<a href="@Url.Action("PersonelEkle","Personel")" class="btn btn-info">Personel +</a>
+

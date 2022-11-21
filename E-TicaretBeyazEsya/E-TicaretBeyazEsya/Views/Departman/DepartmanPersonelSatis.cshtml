@@ -1,0 +1,38 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "DepartmanPersonelSatis";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br>
+<h2>Departman Personel Satış</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Personel Adı: @ViewBag.dp</li>
+</ol>
+<table class="table table-condensed">
+    <tr>
+       
+        <th>Ürün</th>
+        <th>Cari</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+        <th>Yazdır</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Urun.Urun_Ad</td>
+            <td>@x.Cari.Cari_Ad @x.Cari.Cari_Soyad</td>
+            <td>@x.SatisHareket_Fiyat</td>
+            <td>@x.SatisHareket_Adet</td>
+            <td>@x.SatisHareket_ToplamTutar</td>
+            <td>@x.SatisHareket_Tarih</td>
+            <td><a href="#" class="btn btn-primary">Yazdır</a></td>
+        </tr>
+    }
+
+</table>
+

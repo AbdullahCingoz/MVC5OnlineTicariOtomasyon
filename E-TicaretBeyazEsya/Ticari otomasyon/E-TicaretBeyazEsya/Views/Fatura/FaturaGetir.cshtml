@@ -1,0 +1,37 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.Fatura
+@{
+    ViewBag.Title = "FaturaGetir";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+<h2>Fatura Güncelle</h2>
+<br />
+@using (Html.BeginForm("FaturaGuncelle", "Fatura", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.Fatura_ID)
+    @Html.LabelFor(x => x.Fatura_SeriNo)
+    @Html.TextBoxFor(x => x.Fatura_SeriNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_SıraNo)
+    @Html.TextBoxFor(x => x.Fatura_SıraNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_VergiDairesi)
+    @Html.TextBoxFor(x => x.Fatura_VergiDairesi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_Tarih)
+    @Html.TextBoxFor(x => x.Fatura_Tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_Saat)
+    @Html.TextBoxFor(x => x.Fatura_Saat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_TeslimEden)
+    @Html.TextBoxFor(x => x.Fatura_TeslimEden, new { @class = "form-control" })
+    <br /> 
+    @Html.LabelFor(x => x.Fatura_TeslimAlan)
+    @Html.TextBoxFor(x => x.Fatura_TeslimAlan, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncele</button>
+}
+
+
+

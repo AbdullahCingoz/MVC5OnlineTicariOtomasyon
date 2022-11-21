@@ -1,0 +1,30 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.Cari
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+<h2>Cari Güncelle</h2>
+<br />
+@using (Html.BeginForm("CariGüncelle", "Cari", FormMethod.Post))
+{
+<div class="group-form">
+    @Html.HiddenFor(x => x.Cari_ID)
+    @Html.LabelFor(x => x.Cari_Ad)
+    @Html.TextBoxFor(x => x.Cari_Ad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Cari_Ad, "", new {@style="color:red"})
+    <br />
+    @Html.LabelFor(x => x.Cari_Soyad)
+    @Html.TextBoxFor(x => x.Cari_Soyad, new { @class = "form-control" })  
+    <br />
+    @Html.LabelFor(x => x.Cari_Sehir)
+    @Html.TextBoxFor(x => x.Cari_Sehir, new { @class = "form-control" })  
+    <br />
+    @Html.LabelFor(x => x.Cari_Mail)
+    @Html.TextBoxFor(x => x.Cari_Mail, new { @class = "form-control" })
+
+
+</div>
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

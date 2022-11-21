@@ -1,0 +1,31 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.FaturaKalem
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<br />
+<h2>Yeni Kalem Girişi</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.FaturaKalem_Aciklama)
+    @Html.TextBoxFor(x => x.FaturaKalem_Aciklama, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.FaturaKalem_Miktar)
+    @Html.TextBoxFor(x => x.FaturaKalem_Miktar, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.FaturaKalem_BirimFiyat)
+    @Html.TextBoxFor(x => x.FaturaKalem_BirimFiyat, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.FaturaKalem_Tutar)
+    @Html.TextBoxFor(x => x.FaturaKalem_Tutar, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Fatura_ID)
+    @Html.TextBoxFor(x => x.Fatura_ID, new { @class = "form-control" })
+    <br />
+   
+    <button class="btn btn-info">Kaydet</button>
+</form>
+
+
+

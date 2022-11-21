@@ -1,0 +1,37 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.Urun
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+<h2>Yeni Ürün Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Urun_Ad)
+    @Html.TextBoxFor(x => x.Urun_Ad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Urun_Marka)
+    @Html.TextBoxFor(x => x.Urun_Marka, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Urun_Stok)
+    @Html.TextBoxFor(x => x.Urun_Stok, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Urun_AlisFiyati)
+    @Html.TextBoxFor(x => x.Urun_AlisFiyati, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Urun_SatisFiyati)
+    @Html.TextBoxFor(x => x.Urun_SatisFiyati, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Kategori.Kategori_ID)
+    @Html.DropDownListFor(x=>x.Kategori_ID,(List<SelectListItem>)ViewBag.dgr1, new {@class="form-control"})
+    @*@Html.TextBoxFor(x => x.Kategori_ID, new { @class = "form-control" })*@
+    <br />
+    @Html.LabelFor(x => x.Urun_Durum)
+    @Html.CheckBoxFor(x => x.Urun_Durum)
+    <br />
+    @Html.LabelFor(x => x.Urun_Gorsel)
+    @Html.TextBoxFor(x => x.Urun_Gorsel, new {@class="form-control"})
+    <br />
+    <button class="btn btn-primary">Yeni Ürün +</button>
+</form>
+

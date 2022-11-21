@@ -1,0 +1,17 @@
+﻿@model E_TicaretBeyazEsya.Models.Tablolar.Departman
+@{
+    ViewBag.Title = "DepartmanEkle";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+<h2>Departman Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Departman_Ad)
+    @Html.TextBoxFor(x => x.Departman_Ad, new { @class = "form-control" })
+    @Html.LabelFor(x => x.Durum)
+    @Html.CheckBoxFor(x => x.Durum)
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

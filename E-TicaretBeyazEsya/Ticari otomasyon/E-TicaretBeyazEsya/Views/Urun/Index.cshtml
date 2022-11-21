@@ -1,0 +1,56 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar;
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+@using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+{
+    <p>
+        Ürün Adı: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+<br />
+<h2>Ürünler</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>AD</th>
+        <th>MARKA</th>
+        <th>STOK</th>
+        <th>ALIŞ FİYATI</th>
+        <th>SATIŞ FİYATI</th>
+        <th>KATEGORİ</th>
+        <th>DURUM</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+        <th>SATIŞ YAP</th>
+
+    </tr>
+    @foreach (var u in Model)
+    {
+        <tr>
+            <td>@u.Urun_Ad</td>
+            <td>@u.Urun_Marka</td>
+            <td>@u.Urun_Stok</td>
+            <td>@u.Urun_AlisFiyati ₺</td>
+            <td>@u.Urun_SatisFiyati ₺</td>
+            <td>@u.Kategori.Kategori_Ad</td>
+            <td>@u.Urun_Durum</td>
+            <td>
+                <a href="@Url.Action("UrunSil","Urun",new {id=u.Urun_ID})" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+                <a href="@Url.Action("UrunGetir","Urun",new {id=u.Urun_ID})" class="btn btn-success">Güncelle</a>
+
+            </td>
+            <td>
+                <a href="@Url.Action("SatisYap","Urun",new {id=u.Urun_ID})" class="btn btn-default" style="background-color:#1db69a">Satış Yap</a>
+
+            </td>
+        </tr>
+    }
+</table>
+<a href="@Url.Action("YeniUrun","Urun")" class="btn btn-info">Yeni Ürün +</a>
+

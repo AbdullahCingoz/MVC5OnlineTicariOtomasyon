@@ -1,0 +1,65 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@model List<SatisHareket>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<br />
+<h2>Satışlar</h2>
+<br />
+
+<table id="tbl1" class="table table-bordered" style="margin-top:">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün</th>
+            <th>Cari</th>
+            <th>Personel</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam Tutar</th>
+            <th>Tarih</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.SatisHareket_ID</td>
+            <td>@k.Urun.Urun_Ad</td>
+            <td>@k.Cari.Cari_Ad @k.Cari.Cari_Soyad</td>
+            <td>@k.Personel.Personel_Ad @k.Personel.Personel_Soyad</td>
+            <td>@k.SatisHareket_Adet</td>
+            <td>@k.SatisHareket_Fiyat</td>
+            <td>@k.SatisHareket_ToplamTutar</td>
+            <td>@k.SatisHareket_Tarih</td>
+
+
+
+            <td><a href="@Url.Action("SatisGetir", "Satis", new {id=k.SatisHareket_ID})" class="btn btn-success">Güncelle</a></td>
+            <td><a href="@Url.Action("SatisDetay", "Satis", new {id=k.SatisHareket_ID})" class="btn btn-warning">Detaylar</a></td>
+        </tr>
+    }
+
+
+</table>
+<a href="@Url.Action("YeniSatis","Satis")" class="btn btn-info">Yeni Satış +</a>
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+
+$('#tbl1').dataTable({});
+
+</script>

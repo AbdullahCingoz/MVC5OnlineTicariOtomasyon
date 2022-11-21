@@ -1,0 +1,33 @@
+﻿@using E_TicaretBeyazEsya.Models.Tablolar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Kategori>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:">
+    <tr>
+        <th>Kategori Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Kategori_Ad</td>
+            <td><a href="@Url.Action("KategoriSil","Kategori",new {id=k.Kategori_ID})" class="btn btn-danger">Sil</a></td>
+            <td><a href="@Url.Action("KategoriGetir", "Kategori", new {id=k.Kategori_ID})" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+    
+
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa})
+,new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    {"page-link"}
+})
+<a href="@Url.Action("KategoriEkle","Kategori")" class="btn btn-info">Kategori +</a>
